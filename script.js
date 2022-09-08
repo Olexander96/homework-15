@@ -218,29 +218,34 @@
         }
     }*/
 
-// 12)???????????????????????????????????????????????????
+// 12)
 
-    /*let year = +prompt('Введіть рік', 0);
+    let year = +prompt('Введіть рік', 0);
     let month = +prompt('Введіть місяць', 0);
     let day = +prompt('Введіть день', 0);
 
-    if ((day == 31 && month % 2 == 1) || (day == 30 && month % 2 == 0)) {
-        day == 1;
-        if (month < 12) {
-            month += 1
-        } else if (month == 12) {
-            month == 1;
-            year += 1;
-        } else {
-            alert('Невірно введений міцяць!')
-        }
-    } else if ((day < 31 && month % 2 == 1) || (day < 30 && month % 2 == 0)) {
+    if (month > 12) {
+        alert('Місяць введенений некоректно')
+    } else if (day < 30 && month != 2) {
         day += 1;
+    } else if (day === 28 && month === 2) {
+        day = 1;
+        month += 1;
+    } else if (day === 30 && month % 2 === 0 || day === 31 && month % 2 === 1) {
+        month += 1;
+        day = 1;
+    } else if (day === 31 && month === 12) {
+        month = 1;
+        year += 1;
+        day = 1;
     } else {
-        alert('Невірно введений день!')
+        alert('День введенений некоректно')
     }
 
-    alert('Наступна дата: ' + day + '.' + month + '.' + year + 'р.')*/
+    
+    
+
+    alert('Наступна дата: ' + day + '.' + month + '.' + year + 'р.')
 
 
 
