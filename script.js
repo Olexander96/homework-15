@@ -188,22 +188,25 @@
     } */
 
 
-//10)????????????????????????????????????????????????
-    /*let number = +prompt('Введіть число від 0 до 100', 0)
-    
-    let start = 0;
-    let end = 100;
-    let midle = ((end - start) / 2);
-    let question = confirm(`Ваше число > ${midle}, чи == ${midle}?`);
+//10)
+    /*alert('Загадайте число від 0 до 100')
+    let low = 0;
+    let high = 100;
+    let mid = Math.round((high - low) / 2);
 
-    if (question = true) {
-        question = confirm(`Ваше число == ${midle}?`)
-        if (question = true) {
-            alert(`Ваше число ${midle}`)
-        } else if {
-
-        }
+    while (true) {
+        let question = prompt(`Ваше число >, <, чи == ${mid}?`);
+        if (question == '=') {
+            alert(`Ваше число ${mid}`)
+            break
+        } else if (question == '<') {
+            high = mid;
+        } else if (question == '>') {
+            low = mid;
+        };
     }*/
+    
+
     
 
     
@@ -220,7 +223,7 @@
 
 // 12)
 
-    let year = +prompt('Введіть рік', 0);
+    /*let year = +prompt('Введіть рік', 0);
     let month = +prompt('Введіть місяць', 0);
     let day = +prompt('Введіть день', 0);
 
@@ -231,6 +234,10 @@
     } else if (day === 28 && month === 2) {
         day = 1;
         month += 1;
+        if (year % 4 === 0) {
+            day = 29;
+            month = 2;
+        }
     } else if (day === 30 && month % 2 === 0 || day === 31 && month % 2 === 1) {
         month += 1;
         day = 1;
@@ -242,10 +249,7 @@
         alert('День введенений некоректно')
     }
 
-    
-    
-
-    alert('Наступна дата: ' + day + '.' + month + '.' + year + 'р.')
+    alert('Наступна дата: ' + day + '.' + month + '.' + year + 'р.')*/
 
 
 
