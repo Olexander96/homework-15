@@ -22,34 +22,34 @@
 
     switch(num) {
         case 0:
-            alert(')');
+            alert('відповідний символ - )');
             break;
         case 1:
-            alert('!');
+            alert('відповідний символ - !');
             break;
         case 2:
-            alert('@');
+            alert('відповідний символ - @');
             break;
         case 3:
-            alert('#');
+            alert('відповідний символ - #');
             break;
         case 4:
-            alert('$');
+            alert('відповідний символ - $');
             break;
         case 5:
-            alert('%');
+            alert('відповідний символ - %');
             break;
         case 6:
-            alert('^');
+            alert('відповідний символ - ^');
             break;
         case 7:
-            alert('&');
+            alert('відповідний символ - &');
             break;
         case 8:
-            alert('*');
+            alert('відповідний символ - *');
             break;
         case 9:
-            alert('(');
+            alert('відповідний символ - (');
             break;
     } 
 
@@ -90,6 +90,7 @@
             console.log(i)
         }
     }
+    alert('Всі дільники виведені в консолі')
 
 //Норма
 // 6) Запитай у користувача п’ятирозрядне число і визначи, чи є воно паліндромом.
@@ -98,7 +99,7 @@
     if (num1[0] === num1[4] && num1[1] === num1[3] ) {
         alert('Це число ПАЛІНДРОМ!')
     } else {
-        alert('Це інше число')
+        alert('Це НЕ паліндром')
     }
 
 // 7)Запитай у користувача суму покупки і виведи суму до оплати зі знижкою:
@@ -135,25 +136,16 @@
             numWithPlus += 1
         } else if (+num == 0) {
             numWithZero += 1
-        } else if (num === '-') {
+        } else if (num == '-') {
             numWithMinus += 1
-        } else {
-            numWithPlus = 0
-            numWithZero = 0
-            numWithMinus = 0
-        }
-    }
-
-    for (let num of numbers) {
+        } 
         if (+num % 2 == 0 && num !== '-' && +num !== 0) {
             numCouple += 1
         } else if (+num % 2 !== 0 && num !== '-') {
             numNotCouple +=1
-        } else {
-            numCouple = 0;
-            numNotCouple = 0;
-        }
+        } 
     }
+
 
     alert (`Додатніх чисел ${numWithPlus - numWithMinus} шт.,
     Нулів ${numWithZero} шт., 
@@ -163,35 +155,38 @@
 
 // 9) Зацикли відображення днів тижня таким чином: «День тижня. Хочеш побачити наступний день? » і так до 
     //тих пір, поки користувач натискає OK.
-    let day = 'Понеділок';
-
+    
+   let day = 'Понеділок';
+    let anwer = confirm(`${day}. Хочеш побачити наступний день?`);
     while (day) {
-            alert(`${day}. Хочеш побачити наступний день?`);
-
-        if (day == 'Понеділок') {
+        if (anwer) {
             day = 'Вівторок';
-            alert(`${day}. Хочеш побачити наступний день?`);
-        }
-        if (day == 'Вівторок') {
-            day = 'Середа';
-            alert(`${day}. Хочеш побачити наступний день?`);
-        }
-        if (day == 'Середа') {
+            anwer = confirm(`${day}. Хочеш побачити наступний день?`);
+        } else {break}
+        if (anwer) {
+            day = 'Cереда';
+            anwer = confirm(`${day}. Хочеш побачити наступний день?`);
+        } else {break}
+        if (anwer) {
             day = 'Четверг';
-            alert(`${day}. Хочеш побачити наступний день?`);
-        }
-        if (day == 'Четверг') {
+            anwer = confirm(`${day}. Хочеш побачити наступний день?`);
+        } else {break}
+        if (anwer) {
             day = 'Пятниця';
-            alert(`${day}. Хочеш побачити наступний день?`);
-        }
-        if (day == 'Пятниця') {
+            anwer = confirm(`${day}. Хочеш побачити наступний день?`);
+        } else {break}
+        if (anwer) {
             day = 'Субота';
-            alert(`${day}. Хочеш побачити наступний день?`);
-        }
-        if (day == 'Субота') {
+            anwer = confirm(`${day}. Хочеш побачити наступний день?`);
+        } else {break}
+        if (anwer) {
             day = 'Неділля';
-            alert(`${day}. Хочеш побачити наступний день?`);
-        }
+            anwer = confirm(`${day}. Хочеш побачити наступний день?`);
+        } else {break}
+        if (anwer) {
+            day = 'Понеділок';
+            anwer = confirm(`${day}. Хочеш побачити наступний день?`);
+        } else {break}
     } 
 
 //Максимум
@@ -201,20 +196,36 @@
     //Початковий діапазон від 0 до 100, поділи навпіл і отримай 50. Якщо користувач вказав, що його число> 50, 
     //то зміни діапазон на від 50 до 100. І так до тих пір, поки користувач не вибере == N 
     //(буде корисним почитати про алгоритм: "бінарний пошук").
-    alert('Загадайте число від 0 до 100')
+
+    let yourNumner = prompt('Загадайте число від 0 до 100')
     let low = 0;
     let high = 100;
-    let mid = Math.round((high - low) / 2);
-
+    
     while (true) {
-        let question = prompt(`Ваше число >, <, чи == ${mid}?`);
+        let mid = Math.round((high + low) / 2);
+        let question = prompt(`Ваше число >, <, чи = ${mid}?`);
         if (question == '=') {
-            alert(`Ваше число ${mid}`)
-            break
+            if (mid == yourNumner) {
+                alert(`Ваше число ${mid}`)
+                break
+            } else {
+                alert(`Ви можливо обманюєте...`)
+                break
+            }
         } else if (question == '<') {
-            high = mid;
+            if (mid > yourNumner) {
+                high = mid;
+            } else {
+                alert(`Невірний діапазон...`)
+                break
+            }
         } else if (question == '>') {
-            low = mid;
+            if (mid < yourNumner) {
+                low = mid;
+            } else {
+                alert(`Невірний діапазон...`)
+                break
+            }
         };
     }
     
@@ -227,6 +238,7 @@
             console.log(`${i} * ${j} = ${num2}`)
         }
     }
+    alert('Таблиця множення в консолі')
 
 // 12)Запитай дату (день, місяць, рік) і виведи наступну за нею дату. Враховуй можливість переходу на 
     //наступний місяць, рік, а також високосний рік.
