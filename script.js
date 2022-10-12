@@ -148,7 +148,7 @@
         } else if (num == '-') {
             numWithMinus += 1
         } 
-        if (+num % 2 == 0 && num !== '-' && +num !== 0) {
+        if (+num % 2 == 0 && num !== '-' && +num !== 0 || +num == 0) {
             numCouple += 1
         } else if (+num % 2 !== 0 && num !== '-') {
             numNotCouple +=1
